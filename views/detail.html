@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 1340px;
+            margin: auto;
+        }
+        .clearfix{
+            overflow: hidden;
+        }
+        .movie-name{
+            line-height: 50px;
+            letter-spacing: 2px;
+        }
+        .head .poster{
+            float: left;
+            width: 960px;
+            height: 630px;
+            border: 2px solid #999;
+        }
+        .head .info{
+            float: right;
+            width: 320px;
+            font-size: 18px;
+            padding-left: 50px;
+            padding-top: 100px;
+            line-height: 40px;
+        }
+        .content{
+            margin-top: 25px;
+            border: 1px #ccc solid;
+            line-height: 30px;
+            height: 200px;
+            padding: 20px;
+        }
+        .admin{
+            line-height: 50px;
+            text-decoration: none;
+            color: #aaa;
+        }
+        .title {
+            line-height: 80px;
+            letter-spacing: 2px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .title:after{
+            content: '';
+            border: 1px solid #ccc;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1 class="title">电影小站</h1>
+        <h2 class="movie-name">
+            {{detailMovie.title}}
+        </h2>
+        <div class="head clearfix">
+            <div class="poster">
+                <embed src="{{detailMovie.flash}}" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="960" height="630"></embed>
+            </div>
+            <div class="info">
+                <p>语言：{{detailMovie.language}}</p>
+                <p>国家：{{detailMovie.country}}</p>
+                <p>年份：{{detailMovie.year}}</p>
+                <p>导演：{{detailMovie.director}}</p>
+                <p>更新时间：{{detailMovie.meta.createAt}}</p>
+            </div>
+        </div>
+        <div class="content">
+            <h4>电影简介：</h4>
+            {{detailMovie.summary}}
+        </div>
+        <div class="admin">
+            <a href="/admin/list">后台</a>
+        </div>
+    </div>
+</body>
+</html>

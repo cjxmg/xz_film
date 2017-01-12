@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台列表页</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .container-fluid{
+            padding: 40px;
+        }
+        .title{
+            margin: 0;
+            padding: 0;
+        }
+        th{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="title">电影列表</h2>
+            </div>
+            <table class="table table-hover text-center table-bordered">
+                <thead>
+                    <tr>
+                        <th>电影名</th>
+                        <th>创建时间</th>
+                        <th>更新时间</th>
+                        <th>查看</th>
+                        <th>更新</th>
+                        <th>删除</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each movies as |movie|}}
+                        <tr>
+                            <td>
+                                {{movie.title}}
+                            </td>
+                            <td>
+                                {{movie.meta.createAt}}
+                            </td>
+                            <td>
+                                {{movie.meta.updateAt}}
+                            </td>
+                            <td>
+                                <a class="btn" href="/movie/{{movie.id}}">查看</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="/admin/update/{{movie.id}}">更新</a>
+                            </td>
+                            <td>
+                                <button type="button" class="delete btn btn-danger" data-id="{{movie.id}}">删除</button>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <a href="/admin/movie" class="btn btn-default">添加电影</a>
+    </div>
+
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/admin.js"></script>
+</body>
+</html>

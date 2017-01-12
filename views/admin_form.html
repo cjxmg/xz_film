@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .title{
+            line-height: 120px; 
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">{{title}}</h1>
+        <form class="form form-horizontal" action="/admin/movie/new" method="post">
+            <input type="hidden" name="movie[_id]" value="{{movie._id}}">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">电影标题</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[title]" value="{{movie.title}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">语言</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[language]" value="{{movie.language}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">国家</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[country]" value="{{movie.country}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">海报</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[poster]" value="{{movie.poster}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">flash</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[flash]" value="{{movie.flash}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">年份</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[year]" value="{{movie.year}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">导演</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="" name="movie[director]" value="{{movie.director}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">电影简介</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" name="movie[summary]">{{movie.summary}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var form = document.querySelector('.form');
+
+        form.onsubmit = function () {
+            var isConfirm = confirm('确认提交吗？！');
+            if(!isConfirm){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

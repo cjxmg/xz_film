@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .container{
+            line-height: 24px;
+        }
+        .title {
+            line-height: 80px;
+            letter-spacing: 2px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .title:after{
+            content: '';
+            border: 1px solid #ccc;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .poster{
+            margin-bottom: 5px;
+        }
+        img{
+            width: 208px;
+            height: 308px;
+        }
+        .movie-name{
+            font-size: 18px;
+            padding-left: 5px;
+            font-weight: bold;
+            line-height: 30px;
+        }
+        .date{
+            padding-left: 5px;
+        }
+        .movie-wrap{
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">电影小站</h1>
+        <div class="row">
+            {{#each homeMovie as |movie|}}
+                <div class="col-md-3 movie-wrap">
+                    <a href="/movie/{{movie.id}}">
+                        <img class="poster" src="{{movie.poster}}" alt="电影海报">
+                        <div class="movie-name text-primary">
+                            {{movie.title}}
+                        </div>
+                    </a>
+                    <div class="date text-muted">
+                        {{movie.year}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>
