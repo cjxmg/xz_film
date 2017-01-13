@@ -5,6 +5,9 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
     <style>
+        body{
+            background: #eee;
+        }
         .container{
             line-height: 24px;
         }
@@ -31,15 +34,27 @@
         }
         .movie-name{
             font-size: 18px;
-            padding-left: 5px;
+            padding-left: 25px;
             font-weight: bold;
-            line-height: 30px;
+            line-height: 36px;
         }
         .date{
-            padding-left: 5px;
+            padding-left: 25px;
         }
         .movie-wrap{
             margin-bottom: 25px;
+        }
+        .movie-wrap a{
+            display: block;
+            border: 1px solid #ccc;
+            padding: 8px;
+            background: #ffffff;
+            box-shadow: 2px 2px 10px #aaa;
+            padding-top: 18px;
+        }
+        .movie-wrap img{
+            display: block;
+            margin: auto;
         }
     </style>
 </head>
@@ -54,10 +69,10 @@
                         <div class="movie-name text-primary">
                             {{movie.title}}
                         </div>
+                        <div class="date text-muted">
+                            {{movie.year}}
+                        </div>
                     </a>
-                    <div class="date text-muted">
-                        {{movie.year}}
-                    </div>
                 </div>
             {{/each}}
         </div>

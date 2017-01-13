@@ -17,23 +17,14 @@ var MovieSchema = new mongoose.Schema({
     meta: {
         createAt: {
             type: String,
-            default: moment(new Date).format('YYYY-MM-dd HH:mm')
+            default: moment(new Date).format('YYYY-MM-DD HH:mm')
         },
         updateAt: {
             type: String,
-            default: moment(new Date).format('YYYY-MM-dd HH:mm')
+            default: moment(new Date).format('YYYY-MM-DD HH:mm')
         }
     },
     director: String
-});
-
-//每次保存成功都会触发此函数
-MovieSchema.pre('save', function(next) {
-    if(this.isNew) {
-        this.time = Date.now();
-    }
-
-    next();  //这样才能往下走
 });
 
 //添加一些静态方法
@@ -42,7 +33,7 @@ MovieSchema.statics = {
     fetch: function(cb) {
         return this
             .find({})
-            .sort({'meta.updateAt': 1})
+            .sort({'meta.updateAt': -1})
             .exec(cb);
     },
 
