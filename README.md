@@ -107,3 +107,9 @@
 ```
 
 **`Schema`、`Model`、`Entity`的关系请牢记，`Schema`生成`Model`，`Model`创造`Entity`，`Model`和`Entity`都可对数据库操作造成影响，但`Model`比`Entity`更具操作性。**
+
+- #### 运行项目
+
+	* 运行根目录下的app.js即可
+
+	> node app.js
