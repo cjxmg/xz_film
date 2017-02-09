@@ -112,4 +112,4 @@
 
 	* 运行根目录下的app.js即可
 
-	> node app.js
+	* > node app.js
